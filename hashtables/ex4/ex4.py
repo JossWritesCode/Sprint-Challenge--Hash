@@ -1,11 +1,16 @@
+
 def has_negatives(a):
+    result = []
+    database = {}
 
-    """
-    YOUR CODE HERE
-    """
-
+    # add all the elements to the database
+    for element in a:
+        if element != 0:
+            database[element] = element
+    # check if the negative equivalent is in the database, if so add it to result
+    for element in a:
+        if -element in database:
+            result.append(abs(element))
+    # remove duplicates
+    result = list(dict.fromkeys(result))
     return result
-
-
-if __name__ == "__main__":
-    print(has_negatives([-1,-2,1,2,3,4,-4]))
